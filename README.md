@@ -1,0 +1,2 @@
+# ppt
+pre placement talk
