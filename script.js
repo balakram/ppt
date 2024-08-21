@@ -171,3 +171,20 @@ function resetControlTimeout() {
 videoContainer.addEventListener('mousemove', resetControlTimeout);
 videoContainer.addEventListener('click', resetControlTimeout);
 resetControlTimeout();
+
+//  Alert Welcome to our website! This message only appears on mobile devices on your first visit.
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileAlert = document.getElementById('mobile-alert');
+    const closeAlert = document.getElementById('close-alert');
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const firstVisit = localStorage.getItem('firstVisit') === null;
+
+    if (isMobile && firstVisit) {
+        mobileAlert.style.display = 'block';
+        localStorage.setItem('firstVisit', 'no');
+    }
+
+    closeAlert.addEventListener('click', function () {
+        mobileAlert.style.display = 'none';
+    });
+});
