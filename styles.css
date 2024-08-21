@@ -1,0 +1,396 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Header */
+header {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Video container */
+.video-container {
+    max-width: 97%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    overflow: hidden; /* Hide overflow to prevent scroll bars */
+}
+/* Video element */
+video {
+    width: 100%;
+    height: auto;
+    max-height: 70vh; /* Ensure the video does not take up more than 70% of the viewport height */
+    border-radius: 8px;
+}
+
+/* Controls */
+.controls {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.controls button i {
+    margin: 0;
+}
+
+.controls button:hover {
+    background-color: #555;
+}
+
+.description {
+    font-weight: bolder;
+}
+#volumeControl {
+    width: 100px;
+    margin: 0 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #555;
+    height: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#volumeControl::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volumeControl::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+#progressBar {
+    width: 100%;
+    max-width: 100%; /* Ensure the progress bar does not exceed container width */
+    margin: 0 auto; /* Center the progress bar */
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #555;
+    height: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progressBar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .controls button {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    #timeDisplay {
+        display: none; /* Hide time display on small screens */
+    }
+
+    #volumeControl {
+        width: 80px;
+    }
+
+    #progressBar {
+        max-width: 80%; /* Adjust progress bar width on medium screens */
+    }
+    .video-container {
+        height: 90vh; /* Use a smaller height on medium screens */
+        padding: 10px;
+    }
+
+    video {
+        max-height: 60vh; /* Adjust the video height on medium screens */
+    }
+}
+
+
+@media (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    .toggle-container {
+        width: 40px;
+        height: 20px;
+    }
+
+    #themeToggle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ccc;
+        border-radius: 20px;
+    }
+
+    #themeToggle i {
+        display: none;
+    }
+
+    .video-container {
+        height: 100vh; /* Full height on small screens */
+        padding: 0; /* Remove padding for full screen experience */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        border-radius: 0; /* Remove border radius for full screen */
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%; /* Adjust control width */
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #volumeControl {
+        width: 60px; /* Adjust volume control width on small screens */
+    }
+
+    #progressBar {
+        max-width: 100%; /* Ensure progress bar scales to full width on small screens */
+    }
+}
+/* Fullscreen mode styles for phone view */
+@media (max-width: 480px) and (orientation: landscape) {
+    .video-container {
+        height: 100vh;
+    }
+
+    video {
+        height: 100%;
+        width: auto;
+    }
+
+    .controls {
+        width: 100%; /* Expand controls to full width */
+    }
+}
+
+/* General fullscreen styles */
+/*.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+}*/
+/* Fullscreen mode styles */
+.fullscreen-option {
+    /* Customize as needed */
+    display: inline-block;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.fullscreen {
+    /* Apply styling when in fullscreen mode */
+    /* Example: */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
+.fullscreen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* Hide download options in fullscreen mode */
+.fullscreen .download-option {
+    display: none !important;
+}
+
+/* Landscape orientation */
+@media (max-width: 480px) and (orientation: landscape) {
+    .fullscreen {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+    }
+
+    .fullscreen video {
+        width: 100%;
+        height: auto; /* Adjust height to maintain aspect ratio */
+    }
+}
+
+
+/* Theme Toggle Switch */
+.toggle-container {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+#themeToggle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 24px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#themeToggle::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.dark-theme #themeToggle {
+    background-color: #4CAF50;
+}
+
+.dark-theme #themeToggle::before {
+    transform: translateX(26px);
+}
+
+/* Hover effect */
+#themeToggle:hover {
+    background-color: #bbb;
+}
+
+.dark-theme #themeToggle:hover {
+    background-color: #45A049;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #333;
+    color: #FFD700; /* Yellow text color */
+}
+
+.dark-theme header {
+    background-color: #222;
+}
+
+.dark-theme .video-container {
+    background-color: #444;
+}
+
+.dark-theme .controls button,
+.dark-theme #progressBar,
+.dark-theme #volumeControl {
+    background-color: #555;
+    color: #FFD700; /* Yellow time display */
+}
+
+.dark-theme .controls button:hover {
+    background-color: #777;
+}
+
+.dark-theme #timeDisplay {
+    color: #FFD700; /* Yellow time display */
+}
+
+/* Fullscreen mode styles */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+}
+
+.fullscreen video {
+    width: 100%;
+    height: 100%;
+}
