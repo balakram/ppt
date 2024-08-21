@@ -8,6 +8,10 @@ const volumeControl = document.getElementById('volumeControl');
 const timeDisplay = document.getElementById('timeDisplay');
 const progressBar = document.getElementById('progressBar');
 const customFullscreenBtn = document.getElementById('customFullscreenBtn');
+// Get references to necessary elements
+const videoContainer = document.querySelector('.video-container');
+// Get references to necessary elements
+const controls = document.querySelector('.controls');
 
 // Load the saved theme preference from local storage
 if (localStorage.getItem('theme') === 'dark') {
@@ -98,31 +102,42 @@ function formatTime(seconds) {
 }
 
 // Custom fullscreen functionality
-customFullscreenBtn.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.mozRequestFullScreen) { /* Firefox */
-            video.mozRequestFullScreen();
-        } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { /* IE/Edge */
-            video.msRequestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) { /* Firefox */
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE/Edge */
-            document.msExitFullscreen();
-        }
-    }
-});
+// Custom fullscreen functionality
+customFullscreenBtn.addEventListener('click', toggleFullscreen);
 
-// Listen for fullscreen change events
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        enterFullscreen(videoContainer);
+    } else {
+        exitFullscreen();
+    }
+}
+
+function enterFullscreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) { // Safari
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { // IE11
+        element.msRequestFullscreen();
+    } else if (element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { // Safari
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE11
+        document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+    }
+}
+
+// Update the fullscreen button icon and styling when fullscreen is toggled
 document.addEventListener('fullscreenchange', updateFullscreenIcon);
 document.addEventListener('webkitfullscreenchange', updateFullscreenIcon); // For Webkit browsers
 document.addEventListener('mozfullscreenchange', updateFullscreenIcon); // For Firefox
@@ -132,17 +147,27 @@ function updateFullscreenIcon() {
     if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
         customFullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>'; // Change icon to compress
         video.classList.add('fullscreen'); // Apply fullscreen styling
-        removeDownloadOption(); // Hide download option
+        controls.classList.add('fullscreen-controls'); // Show controls in fullscreen
     } else {
         customFullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>'; // Change icon back to expand
         video.classList.remove('fullscreen'); // Remove fullscreen styling
+        controls.classList.remove('fullscreen-controls'); // Hide controls when exiting fullscreen
     }
 }
 
-function removeDownloadOption() {
-    const downloadElements = document.querySelectorAll('.download-option');
-    console.log('Removing download options:', downloadElements); // Log elements being affected
-    downloadElements.forEach(element => {
-        element.style.display = 'none';
-    });
+// Additional functionality: hide controls after a period of inactivity
+let controlTimeout;
+function resetControlTimeout() {
+    clearTimeout(controlTimeout);
+    controls.style.opacity = 1;
+    controlTimeout = setTimeout(() => {
+        if (document.fullscreenElement) {
+            controls.style.opacity = 0; // Hide controls after 3 seconds
+        }
+    }, 3000);
 }
+
+// Show controls when moving the mouse or interacting with the video
+videoContainer.addEventListener('mousemove', resetControlTimeout);
+videoContainer.addEventListener('click', resetControlTimeout);
+resetControlTimeout();
