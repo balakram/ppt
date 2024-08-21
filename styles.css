@@ -34,6 +34,7 @@ header {
     justify-content: center; /* Center the content vertically */
     overflow: hidden; /* Hide overflow to prevent scroll bars */
 }
+
 /* Video element */
 video {
     width: 100%;
@@ -46,6 +47,7 @@ video {
 video.fullscreen {
     max-height: 91vh; /* Fullscreen mode: allow video to use 100% of the viewport height */
 }
+
 /* Controls */
 .controls {
     margin-top: 10px;
@@ -80,6 +82,7 @@ video.fullscreen {
 .description {
     font-weight: bolder;
 }
+
 #volumeControl {
     width: 100px;
     margin: 0 10px;
@@ -151,10 +154,6 @@ video.fullscreen {
         padding: 6px;
     }
 
-    #timeDisplay {
-        display: none; /* Hide time display on small screens */
-    }
-
     #volumeControl {
         width: 80px;
     }
@@ -162,6 +161,7 @@ video.fullscreen {
     #progressBar {
         max-width: 80%; /* Adjust progress bar width on medium screens */
     }
+
     .video-container {
         height: 90vh; /* Use a smaller height on medium screens */
         padding: 10px;
@@ -170,8 +170,12 @@ video.fullscreen {
     video {
         max-height: 60vh; /* Adjust the video height on medium screens */
     }
-}
 
+    #timeDisplay {
+        display: block; /* Show time display on small screens */
+        font-size: 14px; /* Adjust font size if necessary */
+    }
+}
 
 @media (max-width: 480px) {
     header {
@@ -198,7 +202,7 @@ video.fullscreen {
     }
 
     .video-container {
-        height: 80vh; /* Use full viewport height */
+        height: 90vh; /* Use full viewport height */
         padding: 0; /* Remove padding for a full-screen experience */
         display: flex;
         justify-content: center;
@@ -232,26 +236,12 @@ video.fullscreen {
         max-width: 100%; /* Ensure progress bar scales to full width */
     }
 
-    #volumeControl {
-        width: 60px; /* Adjust volume control width on small screens */
-    }
-
-    #progressBar {
-        max-width: 100%; /* Ensure progress bar scales to full width on small screens */
+    #timeDisplay {
+        display: block; /* Ensure time display is visible on small screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
     }
 }
 
-
-/* General fullscreen styles */
-/*.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 9999;
-}*/
 /* Alert */
 .alert {
     position: fixed;
@@ -276,13 +266,13 @@ video.fullscreen {
     margin: 0; /* Remove default margin from heading */
     font-size: 1.5em; /* Adjust heading size */
 }
+
 #close-alert {
     background-color: transparent;
     border: none;
     color: rgb(255, 107, 28);
     font-weight: bold;
     cursor: pointer;
-    font-weight: bold;
     font-size: x-large;
     margin-top: 25px;
 }
@@ -293,17 +283,6 @@ video.fullscreen {
     }
 }
 
-/* Fullscreen mode styles */
-.fullscreen-option {
-    /* Customize as needed */
-    display: inline-block;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 /* Fullscreen mode styles */
 .fullscreen {
     position: fixed;
@@ -395,7 +374,6 @@ video.fullscreen {
     }
 }
 
-
 /* Theme Toggle Switch */
 .toggle-container {
     position: relative;
@@ -472,20 +450,4 @@ video.fullscreen {
 
 .dark-theme #timeDisplay {
     color: #FFD700; /* Yellow time display */
-}
-
-/* Fullscreen mode styles */
-.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 9999;
-}
-
-.fullscreen video {
-    width: 100%;
-    height: 100%;
 }
