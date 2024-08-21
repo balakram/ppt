@@ -42,6 +42,10 @@ video {
     border-radius: 8px;
 }
 
+/* Fullscreen styles */
+video.fullscreen {
+    max-height: 91vh; /* Fullscreen mode: allow video to use 100% of the viewport height */
+}
 /* Controls */
 .controls {
     margin-top: 10px;
@@ -194,8 +198,8 @@ video {
     }
 
     .video-container {
-        height: 100vh; /* Full height on small screens */
-        padding: 0; /* Remove padding for full screen experience */
+        height: 100vh; /* Use full viewport height */
+        padding: 0; /* Remove padding for a full-screen experience */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -204,7 +208,8 @@ video {
     video {
         width: 100%;
         height: 100%;
-        border-radius: 0; /* Remove border radius for full screen */
+        border-radius: 0; /* Remove border radius to use full screen */
+        object-fit: cover; /* Ensure video covers the entire container */
     }
 
     .controls {
@@ -217,6 +222,14 @@ video {
         justify-content: space-between;
         flex-direction: row;
         align-items: center;
+    }
+
+    #volumeControl {
+        width: 60px; /* Adjust volume control width */
+    }
+
+    #progressBar {
+        max-width: 100%; /* Ensure progress bar scales to full width */
     }
 
     #volumeControl {
@@ -264,20 +277,75 @@ video {
     border-radius: 5px;
     cursor: pointer;
 }
+/* Fullscreen mode styles */
 .fullscreen {
-    /* Apply styling when in fullscreen mode */
-    /* Example: */
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-
-.fullscreen video {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent any content overflow */
 }
+
+.fullscreen video {
+    width: auto; /* Set width to auto to maintain aspect ratio */
+    height: 100%; /* Set height to 100% to utilize full screen height */
+    max-width: 100%; /* Ensure video doesn't exceed screen width */
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+}
+
+/* Controls in fullscreen mode */
+.fullscreen-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: 90%;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Controls visible by default */
+    z-index: 10000;
+}
+
+.fullscreen-controls button {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Exit button */
+.fullscreen-controls #customFullscreenBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10001;
+}
+
+/* Show controls when in fullscreen mode and hovering */
+.fullscreen:hover .fullscreen-controls {
+    opacity: 1;
+}
+
+/* Hide controls after inactivity in fullscreen mode */
+.fullscreen-controls {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.fullscreen:hover .fullscreen-controls {
+    opacity: 1;
+}
+
 /* Hide download options in fullscreen mode */
 .fullscreen .download-option {
     display: none !important;
