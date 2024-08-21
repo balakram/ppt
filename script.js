@@ -177,14 +177,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileAlert = document.getElementById('mobile-alert');
     const closeAlert = document.getElementById('close-alert');
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const firstVisit = localStorage.getItem('firstVisit') === null;
+    const alertShown = localStorage.getItem('alertShown');
 
-    if (isMobile && firstVisit) {
+    // Check if alert has not been shown and it's a mobile device
+    if (isMobile && !alertShown) {
         mobileAlert.style.display = 'block';
-        localStorage.setItem('firstVisit', 'no');
+        localStorage.setItem('alertShown', 'true');
     }
 
     closeAlert.addEventListener('click', function () {
         mobileAlert.style.display = 'none';
     });
 });
+
