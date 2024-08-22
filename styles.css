@@ -202,7 +202,7 @@ video.fullscreen {
     }
 
     .video-container {
-        height: 90vh; /* Use full viewport height */
+        height: 100vh; /* Use full viewport height */
         padding: 0; /* Remove padding for a full-screen experience */
         display: flex;
         justify-content: center;
