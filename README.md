@@ -19,12 +19,6 @@
 
 ![Pre Placement Talk Demo](https://raw.githubusercontent.com/balakram/ppt/main/demo.png)
 
-### Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
 # Pre Placement Talk (PPT)
 
 Welcome to **Pre Placement Talk (PPT)** – your one-stop platform for accessing recorded pre-placement talks from top companies.
@@ -41,7 +35,11 @@ Welcome to **Pre Placement Talk (PPT)** – your one-stop platform for accessing
 - 🌐 **Open Source:** Contributions are welcome to add more videos and improve the repository.
 
 ## Getting Started
+### Prerequisites
 
+Before you begin, ensure you have met the following requirements:
+
+* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
 ### Run Locally
 
 To run **Pre Placement Talk (PPT)** locally, use the following commands:
