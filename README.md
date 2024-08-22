@@ -3,13 +3,13 @@
   <br />
   <br />
   
-  <img src="https://balakram.github.io/btstudios/assets/img/btlogo.png" alt="BT Studios Logo" />
+  <img src="https://balakram.github.io/practicemode/btlogo-icon.png" alt="BT Studios Logo" />
 
   <h2 align="center">Pre Placement Talk (PPT)</h2>
 
   Pre Placement Talk (PPT) is a resourceful repository that provides access to recorded videos of pre-placement talks from various companies. <br />Whether you are preparing for campus placements or just curious about a company's work culture, you'll find this repository useful.
 
-  <a href="https://balakram.github.io/preplacementtalk/"><strong>➥ Live Demo</strong></a>
+  <a href="https://balakram.github.io/ppt/"><strong>➥ Live Demo</strong></a>
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ### Demo Screenshots
 
-![Pre Placement Talk Demo](https://balakram.github.io/balakramtudu/img/projects/project-5.png)
+![Pre Placement Talk Demo](https://raw.githubusercontent.com/balakram/ppt/main/demo.png)
 
 ### Prerequisites
 
@@ -50,3 +50,22 @@ To run **Pre Placement Talk (PPT)** locally, use the following commands:
 
 ```bash
 sudo git clone https://github.com/balakram/preplacementtalk.git
+```
+#### Windows:
+
+```bash
+git clone https://github.com/balakram/preplacementtalk.git
+```
+### Contact
+
+If you have any questions or suggestions, feel free to reach out:
+
+- **Name:** Balakram Tudu
+- **GitHub:** [balakram](https://github.com/balakram)
+- **Website:** [balakram.github.io](https://balakram.github.io/balakramtudu/contact.html)
+
+
+
+### License
+
+This project is **free to use** and does not contains any license.
