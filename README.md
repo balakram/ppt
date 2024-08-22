@@ -3,7 +3,7 @@
   <br />
   <br />
   
-  <img src="https://balakram.github.io/btstudios/assets/img/btlogo.png" alt="BT Studios Logo" />
+  <img src="https://balakram.github.io/practicemode/btlogo-icon.png" alt="BT Studios Logo" />
 
   <h2 align="center">Pre Placement Talk (PPT)</h2>
 
