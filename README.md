@@ -7,7 +7,7 @@
 
   <h2 align="center">Pre Placement Talk (PPT)</h2>
 
-  **Pre Placement Talk** is a platform where you can watch recorded videos of pre-placement talks from different companies. This repository is built using HTML, CSS, and JavaScript, and is fully responsive across all devices.
+  Pre Placement Talk (PPT) is a resourceful repository that provides access to recorded videos of pre-placement talks from various companies. <br />Whether you are preparing for campus placements or just curious about a company's work culture, you'll find this repository useful.
 
   <a href="https://balakram.github.io/preplacementtalk/"><strong>➥ Live Demo</strong></a>
 
@@ -17,7 +17,7 @@
 
 ### Demo Screenshots
 
-![PPT Desktop Demo](https://balakram.github.io/balakramtudu/img/projects/project-5.png)
+![Pre Placement Talk Demo](https://balakram.github.io/balakramtudu/img/projects/project-5.png)
 
 ### Prerequisites
 
@@ -27,18 +27,18 @@ Before you begin, ensure you have met the following requirements:
 
 # Pre Placement Talk (PPT)
 
-Welcome to the **Pre Placement Talk (PPT)** repository – your hub for accessing recorded pre-placement talks from a variety of companies. This resource is invaluable for students preparing for campus placements.
+Welcome to **Pre Placement Talk (PPT)** – your one-stop platform for accessing recorded pre-placement talks from top companies.
 
 ## Overview
 
-The **Pre Placement Talk** repository offers a curated collection of videos from pre-placement talks conducted by different companies. These videos provide insights into company cultures, job roles, expectations, and recruitment processes, helping students prepare effectively for their placement interviews.
+**Pre Placement Talk (PPT)** is a repository designed to help students and job seekers prepare for their placement drives by providing access to recorded videos of pre-placement talks from various companies. These videos offer insights into company cultures, roles, expectations, and much more.
 
 ## Features
 
-- 🎥 **Recorded Videos:** Access a collection of pre-placement talk videos from various companies.
-- 🏢 **Company Insights:** Get to know about different companies, their work culture, and the roles they offer.
-- 📱 **Fully Responsive:** The website is responsive and works smoothly across all devices.
-- 🌐 **Open Source:** Contributions are welcome to enhance and expand the collection.
+- 🎥 **Recorded Videos:** Access to a collection of pre-placement talks from various companies.
+- 🏢 **Company Insights:** Get to know the culture, roles, and expectations of different companies.
+- 🔍 **Easy Navigation:** Find the company talks you're interested in with ease.
+- 🌐 **Open Source:** Contributions are welcome to add more videos and improve the repository.
 
 ## Getting Started
 
